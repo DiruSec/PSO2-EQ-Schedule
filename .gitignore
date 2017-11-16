@@ -1,0 +1,10 @@
+*.project
+new_file.html
+mtnupdate.json
+schedule.json
+twitter.json
+package.json
+*.log
+*.bak
+logo.png
+*.mp3

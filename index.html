@@ -1,0 +1,583 @@
+﻿<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<meta name="description" content="提供PSO2（梦幻之星OL2）日服每周固定紧急时间表、全船随机紧急通知、客户端更新通知及定期维护时间更改通知。">
+<title>PSO2 紧急时间表</title>
+<link rel="stylesheet" href="css/event.css" charset="utf-8" />
+<link rel="stylesheet" href="css/main.css" charset="utf-8" />
+<link rel="stylesheet" href="css/pso2_font.css" charset="utf-8" />
+<script type="text/javascript" src="script/jquery-3.2.0.min.js"></script>  
+<script type="text/javascript" src="script/moment-with-locales.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="script/parser.js" charset="utf-8"></script>
+<script type="text/javascript" src="script/randomparser.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="wrap">
+<section id="tablearea">
+	<table id="timetable">
+		<caption>Emergency Quest Schedule</caption>
+		<thead>
+		<tr>
+			<th></th>
+			<th id="000">0:00</th>
+			<th id="100">1:00</th>
+			<th id="200">2:00</th>
+			<th id="300">3:00</th>
+			<th id="400">4:00</th>
+			<th id="500">5:00</th>
+			<th id="600">6:00</th>
+			<th id="700">7:00</th>
+			<th id="800">8:00</th>
+			<th id="900">9:00</th>
+			<th id="1000">10:00</th>
+			<th id="1100">11:00</th>
+			<th id="1200">12:00</th>
+			<th id="1300">13:00</th>
+			<th id="1400">14:00</th>
+			<th id="1500">15:00</th>
+			<th id="1600">16:00</th>
+			<th id="1700">17:00</th>
+			<th id="1800">18:00</th>
+			<th id="1900">19:00</th>
+			<th id="2000">20:00</th>
+			<th id="2100">21:00</th>
+			<th id="2200">22:00</th>
+			<th id="2300">23:00</th>
+			<th id="thboost">BUFF</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr class="week1">
+			<td id="wed">周三</td>
+			<td id="wed0"></td>
+			<td id="wed1"></td>
+			<td id="wed2"></td>
+			<td id="wed3"></td>
+			<td id="wed4"></td>
+			<td id="wed5"></td>
+			<td id="wed6"></td>
+			<td id="wed7"></td>
+			<td id="wed8"></td>
+			<td id="wed9"></td>
+			<td id="wed10"></td>
+			<td id="wed11"></td>
+			<td id="wed12"></td>
+			<td id="wed13"></td>
+			<td id="wed14"></td>
+			<td id="wed15"></td>
+			<td id="wed16"></td>
+			<td id="wed17"></td>
+			<td id="wed18"></td>
+			<td id="wed19"></td>
+			<td id="wed20"></td>
+			<td id="wed21"></td>
+			<td id="wed22"></td>
+			<td id="wed23"></td>
+			<td id="wedboost"></td>
+		</tr>
+		<tr class="week1">
+			<td id="thu">周四</td>
+			<td id="thu0"></td>
+			<td id="thu1"></td>
+			<td id="thu2"></td>
+			<td id="thu3"></td>
+			<td id="thu4"></td>
+			<td id="thu5"></td>
+			<td id="thu6"></td>
+			<td id="thu7"></td>
+			<td id="thu8"></td>
+			<td id="thu9"></td>
+			<td id="thu10"></td>
+			<td id="thu11"></td>
+			<td id="thu12"></td>
+			<td id="thu13"></td>
+			<td id="thu14"></td>
+			<td id="thu15"></td>
+			<td id="thu16"></td>
+			<td id="thu17"></td>
+			<td id="thu18"></td>
+			<td id="thu19"></td>
+			<td id="thu20"></td>
+			<td id="thu21"></td>
+			<td id="thu22"></td>
+			<td id="thu23"></td>
+			<td id="thuboost"></td>
+		</tr>
+		<tr class="week1">
+			<td id="fri">周五</td>
+			<td id="fri0"></td>
+			<td id="fri1"></td>
+			<td id="fri2"></td>
+			<td id="fri3"></td>
+			<td id="fri4"></td>
+			<td id="fri5"></td>
+			<td id="fri6"></td>
+			<td id="fri7"></td>
+			<td id="fri8"></td>
+			<td id="fri9"></td>
+			<td id="fri10"></td>
+			<td id="fri11"></td>
+			<td id="fri12"></td>
+			<td id="fri13"></td>
+			<td id="fri14"></td>
+			<td id="fri15"></td>
+			<td id="fri16"></td>
+			<td id="fri17"></td>
+			<td id="fri18"></td>
+			<td id="fri19"></td>
+			<td id="fri20"></td>
+			<td id="fri21"></td>
+			<td id="fri22"></td>
+			<td id="fri23"></td>
+			<td id="friboost"></td>
+		</tr>
+		<tr class="week1">
+			<td id="sat">周六</td>
+			<td id="sat0"></td>
+			<td id="sat1"></td>
+			<td id="sat2"></td>
+			<td id="sat3"></td>
+			<td id="sat4"></td>
+			<td id="sat5"></td>
+			<td id="sat6"></td>
+			<td id="sat7"></td>
+			<td id="sat8"></td>
+			<td id="sat9"></td>
+			<td id="sat10"></td>
+			<td id="sat11"></td>
+			<td id="sat12"></td>
+			<td id="sat13"></td>
+			<td id="sat14"></td>
+			<td id="sat15"></td>
+			<td id="sat16"></td>
+			<td id="sat17"></td>
+			<td id="sat18"></td>
+			<td id="sat19"></td>
+			<td id="sat20"></td>
+			<td id="sat21"></td>
+			<td id="sat22"></td>
+			<td id="sat23"></td>
+			<td id="satboost"></td>
+		</tr>
+		<tr class="week1">
+			<td id="sun">周日</td>
+			<td id="sun0"></td>
+			<td id="sun1"></td>
+			<td id="sun2"></td>
+			<td id="sun3"></td>
+			<td id="sun4"></td>
+			<td id="sun5"></td>
+			<td id="sun6"></td>
+			<td id="sun7"></td>
+			<td id="sun8"></td>
+			<td id="sun9"></td>
+			<td id="sun10"></td>
+			<td id="sun11"></td>
+			<td id="sun12"></td>
+			<td id="sun13"></td>
+			<td id="sun14"></td>
+			<td id="sun15"></td>
+			<td id="sun16"></td>
+			<td id="sun17"></td>
+			<td id="sun18"></td>
+			<td id="sun19"></td>
+			<td id="sun20"></td>
+			<td id="sun21"></td>
+			<td id="sun22"></td>
+			<td id="sun23"></td>
+			<td id="sunboost"></td>
+		</tr>
+		<tr class="week1">
+			<td id="mon">周一</td>
+			<td id="mon0"></td>
+			<td id="mon1"></td>
+			<td id="mon2"></td>
+			<td id="mon3"></td>
+			<td id="mon4"></td>
+			<td id="mon5"></td>
+			<td id="mon6"></td>
+			<td id="mon7"></td>
+			<td id="mon8"></td>
+			<td id="mon9"></td>
+			<td id="mon10"></td>
+			<td id="mon11"></td>
+			<td id="mon12"></td>
+			<td id="mon13"></td>
+			<td id="mon14"></td>
+			<td id="mon15"></td>
+			<td id="mon16"></td>
+			<td id="mon17"></td>
+			<td id="mon18"></td>
+			<td id="mon19"></td>
+			<td id="mon20"></td>
+			<td id="mon21"></td>
+			<td id="mon22"></td>
+			<td id="mon23"></td>
+			<td id="monboost"></td>
+		</tr>
+		<tr class="week1">
+			<td id="tue">周二</td>
+			<td id="tue0"></td>
+			<td id="tue1"></td>
+			<td id="tue2"></td>
+			<td id="tue3"></td>
+			<td id="tue4"></td>
+			<td id="tue5"></td>
+			<td id="tue6"></td>
+			<td id="tue7"></td>
+			<td id="tue8"></td>
+			<td id="tue9"></td>
+			<td id="tue10"></td>
+			<td id="tue11"></td>
+			<td id="tue12"></td>
+			<td id="tue13"></td>
+			<td id="tue14"></td>
+			<td id="tue15"></td>
+			<td id="tue16"></td>
+			<td id="tue17"></td>
+			<td id="tue18"></td>
+			<td id="tue19"></td>
+			<td id="tue20"></td>
+			<td id="tue21"></td>
+			<td id="tue22"></td>
+			<td id="tue23"></td>
+			<td id="tueboost"></td>
+		</tr>
+		<tr class="week1">
+			<td id="2wed">周三</td>
+			<td id="2wed0"></td>
+			<td id="2wed1"></td>
+			<td id="2wed2"></td>
+			<td id="2wed3"></td>
+			<td id="2wed4"></td>
+			<td id="2wed5"></td>
+			<td id="2wed6"></td>
+			<td id="2wed7"></td>
+			<td id="2wed8"></td>
+			<td id="2wed9"></td>
+			<td id="2wed10"></td>
+			<td id="2wed11"></td>
+			<td id="2wed12"></td>
+			<td id="2wed13"></td>
+			<td id="2wed14"></td>
+			<td id="2wed15"></td>
+			<td id="2wed16"></td>
+			<td id="2wed17"></td>
+			<td id="2wed18"></td>
+			<td id="2wed19"></td>
+			<td id="2wed20"></td>
+			<td id="2wed21"></td>
+			<td id="2wed22"></td>
+			<td id="2wed23"></td>
+			<td id="2wedboost"></td>
+		</tr>
+		<tr class="week2">
+			<td id="2thu">周四</td>
+			<td id="2thu0"></td>
+			<td id="2thu1"></td>
+			<td id="2thu2"></td>
+			<td id="2thu3"></td>
+			<td id="2thu4"></td>
+			<td id="2thu5"></td>
+			<td id="2thu6"></td>
+			<td id="2thu7"></td>
+			<td id="2thu8"></td>
+			<td id="2thu9"></td>
+			<td id="2thu10"></td>
+			<td id="2thu11"></td>
+			<td id="2thu12"></td>
+			<td id="2thu13"></td>
+			<td id="2thu14"></td>
+			<td id="2thu15"></td>
+			<td id="2thu16"></td>
+			<td id="2thu17"></td>
+			<td id="2thu18"></td>
+			<td id="2thu19"></td>
+			<td id="2thu20"></td>
+			<td id="2thu21"></td>
+			<td id="2thu22"></td>
+			<td id="2thu23"></td>
+			<td id="2thuboost"></td>
+		</tr>
+		<tr class="week2">
+			<td id="2fri">周五</td>
+			<td id="2fri0"></td>
+			<td id="2fri1"></td>
+			<td id="2fri2"></td>
+			<td id="2fri3"></td>
+			<td id="2fri4"></td>
+			<td id="2fri5"></td>
+			<td id="2fri6"></td>
+			<td id="2fri7"></td>
+			<td id="2fri8"></td>
+			<td id="2fri9"></td>
+			<td id="2fri10"></td>
+			<td id="2fri11"></td>
+			<td id="2fri12"></td>
+			<td id="2fri13"></td>
+			<td id="2fri14"></td>
+			<td id="2fri15"></td>
+			<td id="2fri16"></td>
+			<td id="2fri17"></td>
+			<td id="2fri18"></td>
+			<td id="2fri19"></td>
+			<td id="2fri20"></td>
+			<td id="2fri21"></td>
+			<td id="2fri22"></td>
+			<td id="2fri23"></td>
+			<td id="2friboost"></td>
+		</tr>
+		<tr class="week2">
+			<td id="2sat">周六</td>
+			<td id="2sat0"></td>
+			<td id="2sat1"></td>
+			<td id="2sat2"></td>
+			<td id="2sat3"></td>
+			<td id="2sat4"></td>
+			<td id="2sat5"></td>
+			<td id="2sat6"></td>
+			<td id="2sat7"></td>
+			<td id="2sat8"></td>
+			<td id="2sat9"></td>
+			<td id="2sat10"></td>
+			<td id="2sat11"></td>
+			<td id="2sat12"></td>
+			<td id="2sat13"></td>
+			<td id="2sat14"></td>
+			<td id="2sat15"></td>
+			<td id="2sat16"></td>
+			<td id="2sat17"></td>
+			<td id="2sat18"></td>
+			<td id="2sat19"></td>
+			<td id="2sat20"></td>
+			<td id="2sat21"></td>
+			<td id="2sat22"></td>
+			<td id="2sat23"></td>
+			<td id="2satboost"></td>
+		</tr>
+		<tr class="week2">
+			<td id="2sun">周日</td>
+			<td id="2sun0"></td>
+			<td id="2sun1"></td>
+			<td id="2sun2"></td>
+			<td id="2sun3"></td>
+			<td id="2sun4"></td>
+			<td id="2sun5"></td>
+			<td id="2sun6"></td>
+			<td id="2sun7"></td>
+			<td id="2sun8"></td>
+			<td id="2sun9"></td>
+			<td id="2sun10"></td>
+			<td id="2sun11"></td>
+			<td id="2sun12"></td>
+			<td id="2sun13"></td>
+			<td id="2sun14"></td>
+			<td id="2sun15"></td>
+			<td id="2sun16"></td>
+			<td id="2sun17"></td>
+			<td id="2sun18"></td>
+			<td id="2sun19"></td>
+			<td id="2sun20"></td>
+			<td id="2sun21"></td>
+			<td id="2sun22"></td>
+			<td id="2sun23"></td>
+			<td id="2sunboost"></td>
+		</tr>
+		<tr class="week2">
+			<td id="2mon">周一</td>
+			<td id="2mon0"></td>
+			<td id="2mon1"></td>
+			<td id="2mon2"></td>
+			<td id="2mon3"></td>
+			<td id="2mon4"></td>
+			<td id="2mon5"></td>
+			<td id="2mon6"></td>
+			<td id="2mon7"></td>
+			<td id="2mon8"></td>
+			<td id="2mon9"></td>
+			<td id="2mon10"></td>
+			<td id="2mon11"></td>
+			<td id="2mon12"></td>
+			<td id="2mon13"></td>
+			<td id="2mon14"></td>
+			<td id="2mon15"></td>
+			<td id="2mon16"></td>
+			<td id="2mon17"></td>
+			<td id="2mon18"></td>
+			<td id="2mon19"></td>
+			<td id="2mon20"></td>
+			<td id="2mon21"></td>
+			<td id="2mon22"></td>
+			<td id="2mon23"></td>
+			<td id="2monboost"></td>
+		</tr>
+		<tr class="week2">
+			<td id="2tue">周二</td>
+			<td id="2tue0"></td>
+			<td id="2tue1"></td>
+			<td id="2tue2"></td>
+			<td id="2tue3"></td>
+			<td id="2tue4"></td>
+			<td id="2tue5"></td>
+			<td id="2tue6"></td>
+			<td id="2tue7"></td>
+			<td id="2tue8"></td>
+			<td id="2tue9"></td>
+			<td id="2tue10"></td>
+			<td id="2tue11"></td>
+			<td id="2tue12"></td>
+			<td id="2tue13"></td>
+			<td id="2tue14"></td>
+			<td id="2tue15"></td>
+			<td id="2tue16"></td>
+			<td id="2tue17"></td>
+			<td id="2tue18"></td>
+			<td id="2tue19"></td>
+			<td id="2tue20"></td>
+			<td id="2tue21"></td>
+			<td id="2tue22"></td>
+			<td id="2tue23"></td>
+			<td id="2tueboost"></td>
+		</tr>
+		<tr class="week2">
+			<td id="3wed">周三</td>
+			<td id="3wed0"></td>
+			<td id="3wed1"></td>
+			<td id="3wed2"></td>
+			<td id="3wed3"></td>
+			<td id="3wed4"></td>
+			<td id="3wed5"></td>
+			<td id="3wed6"></td>
+			<td id="3wed7"></td>
+			<td id="3wed8"></td>
+			<td id="3wed9"></td>
+			<td id="3wed10"></td>
+			<td id="3wed11"></td>
+			<td id="3wed12"></td>
+			<td id="3wed13"></td>
+			<td id="3wed14"></td>
+			<td id="3wed15"></td>
+			<td id="3wed16"></td>
+			<td id="3wed17"></td>
+			<td id="3wed18"></td>
+			<td id="3wed19"></td>
+			<td id="3wed20"></td>
+			<td id="3wed21"></td>
+			<td id="3wed22"></td>
+			<td id="3wed23"></td>
+			<td id="3wedboost"></td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr class="weekswitch">
+				<td colspan="26" align="right">
+					<button id="btnw1" onclick="btnweek1()" type="button" value="on">隐藏第一周紧急</button>
+					<button id="btnw2" onclick="btnweek2()" type="button" value="on">隐藏第二周紧急</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="26" align="right">
+					<div id="tzselector">
+						<input type="radio" name="timezone" value="gmt8" checked>北京时间
+						<input type="radio" name="timezone" value="gmt9">日本时间
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="26" align="right">
+					<div id="lastupdate">Last Updated at</div>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+	<table id="randomtable">
+	<caption>Random Emergency Quest Info</caption>
+	<thead>
+		<tr>
+			<th></th>
+			<th id="ship1">1船</th>
+			<th id="ship2">2船</th>
+			<th id="ship3">3船</th>
+			<th id="ship4">4船</th>
+			<th id="ship5">5船</th>
+			<th id="ship6">6船</th>
+			<th id="ship7">7船</th>
+			<th id="ship8">8船</th>
+			<th id="ship9">9船</th>
+			<th id="ship10">10船</th>
+		</tr>
+		</thead>
+		<tbody>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="11" align="right">
+					<button id="pushsetbtn" onclick="pushSettingsbutton()" value="off">打开通知设定</button>
+					<button id="notitest"  onclick="makepush()" style="display:none">测试通知</button>   <!-- DEBUG --> 
+					<button id="refresh" onclick="refreshbutton()" type="button">手动刷新</button>
+				</td>
+			</tr>
+			<tr class="pushsetting" id= "permissiondenied">
+				<td colspan="11" align="center" style="background-color: #ED3D3D; color:#FFFFFF;">	
+					通知权限已被禁止
+				</td>
+			</tr>
+			<tr class="pushsetting">
+				<td colspan="11" align="right">	
+					<input type="radio" name="pushswitch" value="off">关
+					<input type="radio" name="pushswitch" value="on" checked>开 
+					｜
+					<input type="checkbox" id="allcheck">全选
+					<input type="checkbox" id="pship1" name="pushship" checked>1船
+					<input type="checkbox" id="pship2" name="pushship" checked>2船
+					<input type="checkbox" id="pship3" name="pushship" checked>3船
+					<input type="checkbox" id="pship4" name="pushship" checked>4船
+					<input type="checkbox" id="pship5" name="pushship" checked>5船
+					<input type="checkbox" id="pship6" name="pushship" checked>6船
+					<input type="checkbox" id="pship7" name="pushship" checked>7船
+					<input type="checkbox" id="pship8" name="pushship" checked>8船
+					<input type="checkbox" id="pship9" name="pushship" checked>9船
+					<input type="checkbox" id="pship10" name="pushship" checked>10船
+				</td>
+			</tr>
+			<tr>
+				<td colspan="11" align="right">
+					<div id="randomupdate">Last Updated At</div>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</section>
+<section id="infoarea">
+	<!-- <table id="boosttable">
+		<caption>Boost Event Info</caption>
+		<thead>
+		<tr>
+			<th>时间</th>
+			<th>任务</th>
+			<th style="width: 40%;">BUFF内容</th>
+		</tr>
+		</thead>
+		<tbody></tbody>
+	</table> -->
+	<table id="mtnupdatetable">
+		<caption>Maintenance &amp; Update Info</caption>
+	</table>
+	<table id="abbrtable">
+		<caption>Quest Info</caption>
+		<tr>
+		<td>
+		<div id="abbr"></div>
+		</td>
+		</tr>
+	</table>
+<!-- <div id="notifyaudio" style="display:none"></div> -->
+</section>
+</div>
+<footer>
+		<hr />
+		<p>For any questions, contact me on Twitter @DiruSec or TieBa @Gripe.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,213 @@
+.td1{
+	background: #D2B48C;
+	color: #000000;
+	border-bottom:0.2rem solid #998366;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.td2{
+	background: #CD853F;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #96612E;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.td3{
+	background: #8B4513;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #66330E;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.td4{
+	background: #800000;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #A24545;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.tdvr{
+	background: #FF8C00;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #BA6600;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.yuri{
+	background: #BA55D3;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #CC83DF;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.city{
+	background: #999999;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #707070;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.izanai{
+	background: #666666;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #4B4B4B;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.elder{
+	background: #000000;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #454545;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.loser{
+	background: #DAA520;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #9F7918;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.eloser{
+	background: #483D8B;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #352D66;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.mother{
+	background: #EEE8AA;
+	color: #000000;
+	border-bottom:0.2rem solid #AEA97C;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.yamato{
+	background: #B0C4DE;
+	color: #000000;
+	border-bottom:0.2rem solid #818FA2;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.magatsu{
+	background: #7B68EE;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #5A4CAE;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.adabana{
+	background: #DC143C;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #A10F2C;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.deus{
+	background: #B8860B;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #866209;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.forest{
+	background: #3CB371;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #2C8353;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.snowfield{
+	background: #FAFAFA;
+	color: #000000;
+	border-bottom:0.2rem solid #FFFFFF;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.volcano{
+	background: #FF6347;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #BA4934;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.skyfield{
+	background: #87CEEB;
+	color: #000000;
+	border-bottom:0.2rem solid #6396AB;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.desert{
+	background: #A0522D;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #753C21;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.underground{
+	background: #4682B4;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #335F83;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.wopal{
+	background: #6495ED;
+	color: #FFFFFF;
+	border-bottom:0.2rem solid #496DAD;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.harukotan{
+	background: #F4D19F;
+	color: #000000;
+	border-bottom:0.2rem solid #DEBE91;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.none{
+	background: #E3E8E7;
+	color: #000000;
+	border-bottom:0.2rem solid #E3E8E7;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
+.casino{
+	background: #FAFAD2;
+	color: #FF0000;
+	border-bottom:0.2rem solid #CDCDAC;
+}
+
+.ranking{
+	background: #98FB98;
+	color: #000000;
+	border-bottom:0.2rem solid #6FB76F;
+	font-size: 11px;
+	max-width: 7.5rem;
+}

@@ -1,0 +1,129 @@
+html{
+    font-size: 14px;
+    color: #000000;
+    /*background: #000000;*/
+}
+
+
+
+caption {
+	font-family: 'pso2_fontregular';
+    font-weight:bold;
+    font-size: 18px;
+    background:#50adea url(../image/corner.gif) no-repeat right top;
+    border-bottom:2px solid #1975d7;
+    color:#fff;
+    text-transform:uppercase;
+    padding:10px;
+}
+td, th {
+    padding:5px;
+    line-height:1.5;
+}
+thead th {
+    text-align:center;
+    background:#f5f5f5;
+    color:#666;
+    border:1px solid #fff;
+    text-transform:uppercase;
+}
+tbody tr {
+    background:#fff;
+    text-align:center;
+}
+
+tbody tr:nth-child(2n+1) {
+  background: #f1f6fc;
+}
+
+tbody tr td { 
+    height:40px;
+    border:1px solid #FFF;
+}
+
+footer{
+	width: 100%;
+	font-size: 0.8em;
+	color: #888;
+	text-align: right;
+	position: relative;
+	bottom: 5%;
+	margin-right: 5%
+}
+
+
+#timetable{
+	margin:0 auto; 
+	width:auto;
+	min-width: 90%;
+	border-spacing: 0;
+    background: #FFFFFF;
+	}
+	
+#randomtable{
+	margin:0 auto; 
+	width:auto;
+	min-width: 90%;
+	border-spacing: 0;
+    background: #FFFFFF;
+	}
+	
+#infoarea{
+	position: relative;
+	}
+	
+#mtnupdatetable{
+    position: relative;
+    margin:0 auto; 
+	width: auto;
+	}
+	
+#abbrtable{
+    position: relative;
+    margin:0 auto; 
+	width: auto;
+	}
+	
+#abbr{
+	line-height: 1.8;
+}
+
+.week2, .weekswitch{
+	display: none;
+}
+
+#timetable tbody tr:hover,#randomtable tbody tr:hover {
+    background: #FEECE7;
+}
+
+@media only screen and (min-width: 70rem) 
+{
+	body{
+		width:auto;
+	}
+	
+	.wrap{
+		display: flex;
+		justify-content: center;
+		min-height: 100%;
+		margin:0 auto; 
+		overflow:hidden;
+		position: relative;
+	}
+
+	footer{
+		position: relative;
+	}
+	
+	#tablearea{
+		float: left;
+   		position: relative;
+	}
+    
+    #infoarea{
+    	left: 1.5rem;
+    	float: left;
+    	max-width: 30%;
+    }
+    
+}
