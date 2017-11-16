@@ -32,6 +32,6 @@ for tweet in public_tweets:
     except:
         print ("there's no hashtags")
     
-with open( sys.path[0] + '/twitter.json', 'w') as f:
+with open( sys.path[0] + '/twitter.json', 'w+b') as f:
 	f.write(json.dumps(result, ensure_ascii=False).encode('utf-8'))
 print ("Twitter EQ information has been get.")
