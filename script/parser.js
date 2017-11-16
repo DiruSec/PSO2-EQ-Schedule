@@ -481,6 +481,7 @@ var questname = {}
 var boostname = {}
 var timedata = {}
 var livestage = false
+var showNotice
 
  //关闭AJAX缓存
 $.ajaxSetup ({
@@ -523,6 +524,13 @@ $(document).ready(function() {
 		main();
 		mtnupdate();
 	});
+	if ((document.cookie).indexOf("showNotice=false;") == -1){
+		$(".notice").css("display","block")
+		$(".notice").on("click", function(){
+			$(this).css("display","none")
+			document.cookie = "showNotice = false; " + "expires=" +  new Date(new Date()-0+30*86400000).toGMTString();
+		})
+	}
 })
 
 // 按顺序读取三个json，确保全部读取成功

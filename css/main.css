@@ -4,8 +4,6 @@ html{
     /*background: #000000;*/
 }
 
-
-
 caption {
 	font-family: 'pso2_fontregular';
     font-weight:bold;
@@ -51,6 +49,31 @@ footer{
 	margin-right: 5%
 }
 
+.notice{
+    display: none;
+	
+	box-sizing: border-box;
+	position: fixed;
+	top: 0;
+	left: 0;
+
+	border-bottom: 1px solid #3098c4;
+	width: 100%;
+	background: rgba(174, 200, 208, 0.8);
+	font-size: 90%;
+	color: #24262a;
+	font-weight: normal;
+	z-index: 2000;
+}
+
+.notice p {
+	display: inline-block;
+    margin: .5em 3%;
+    text-align: left;
+}
+.notice a {
+	text-decoration: none;
+}
 
 #timetable{
 	margin:0 auto; 
@@ -105,7 +128,7 @@ footer{
 	.wrap{
 		display: flex;
 		justify-content: center;
-		min-height: 100%;
+		min-height: 90%;
 		margin:0 auto; 
 		overflow:hidden;
 		position: relative;
