@@ -524,7 +524,7 @@ $(document).ready(function() {
 		main();
 		mtnupdate();
 	});
-	if ((document.cookie).indexOf("showNotice=false;") == -1){
+	if ((document.cookie).indexOf("showNotice=false") == -1){
 		$(".notice").css("display","block")
 		$(".notice").on("click", function(){
 			$(this).css("display","none")
