@@ -28,7 +28,7 @@ for tweet in public_tweets:
             time = tweet.created_at+ datetime.timedelta(hours=9)
             hour = datetime.datetime.strftime(time,"%H")
             result.append({"time": hour, "text" : text})
-            count = count+1
+            count = count + 1
     except:
         print ("there's no hashtags")
     
