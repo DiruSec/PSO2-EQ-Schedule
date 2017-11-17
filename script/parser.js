@@ -128,11 +128,11 @@ function leagueparser(name) //输出AL名
 	if(name.indexOf("ハイスコア") >= 0) {
 		return "排名：飞机(高分)"
 	} else if(name.indexOf("エネミー種撃破") >= 0) {
-		return "排名：击破数(" + name.match(/.*?エネミー種撃破：(.*)/)[1] + ")"
+		return "排名(" + name.match(/.*?エネミー種撃破：(.*)/)[1] + ")"
 	} else if(name.indexOf("アイテム収集") >= 0) {
-		return "排名：收集(" + name.match(/アイテム収集：(.*)/)[1] + ")"
+		return "排名(" + name.match(/アイテム収集：(.*)/)[1] + ")"
 	} else if(name.indexOf("指定エネミー撃破") >= 0) {
-		return "排名：击破数(" + name.match(/指定エネミー撃破：(.*)/)[1] + ")"
+		return "排名(" + name.match(/指定エネミー撃破：(.*)/)[1] + ")"
 	} else if(name.indexOf("累計スコア") >= 0) {
 		return "排名：飞机(累计)"
 	}
@@ -142,6 +142,11 @@ function durationparser(time) //将跨时间的活动输出为纯小时（数组
 {
 	var start = time.replace(/( |)～.{4,6}/, "");
 	var end = time.replace(/.{4,6}～( |)/, "");
+	if (end == "00:00" ){
+		end = "24:00"
+	} else if(end == "00:30"){
+		end = "24:30"
+	}
 	return [start, end];
 }
 
@@ -236,20 +241,62 @@ function durationhider() {  //将跨时间（如AL）间没有紧急的小时数
 	})
 }
 
+function durationEqParser(origtime, questname){ // 处理在持续事件中的紧急
+	isDurationEq = 0
+	var durationStart = influenceDuration[0]
+	var durationEnd = influenceDuration[1]
+	if (time >= durationStart && time <= durationEnd){
+		if (isAddNewRow == 0){
+			$("#timetable tr:eq(" + tablerows + ")").after("<tr id='t"+tablerows+"'></tr>")
+			$("#timetable tr:eq(" + tablerows + ")").children().attr("rowspan",2)
+			addedRows.push((tablerows+1))
+			isAddNewRow = 1
+		}
+		$("#timetable tr:eq(" + tablerows + ") td:eq(" + (durationStart+1) + ")").attr("rowspan",1)
+		while (durationStart < time){
+			$("#t"+tablerows).append("<td></td>")
+			durationStart ++
+		}
+		if (origtime.indexOf("30") != -1){
+			$("#t"+tablerows).append("<td class='"+classparser(questname)+"'>("+time+":30)<br/>"+questparser(questname) +"</td>")
+		} else{
+			$("#t"+tablerows).append("<td class='"+classparser(questname)+"'>"+questparser(questname) +"</td>")			
+		}
+		while ((durationEnd-1) > time){
+			$("#t"+tablerows).append("<td></td>")
+			durationEnd --
+		}
+		isDurationEq = 1
+	}
+}
+
+function checkIsAddRows(row){ //确认是否是用于合并的行
+	while (addedRows.indexOf(row) != -1){
+		row --
+	}
+	return row
+}
+
 function main() //主要处理函数
 {
 	tablerows = 0;
 	hideweek = 0;
+	maximumrows = 20;
+	isDurationEq = 0;
+	addedRows = []
 	moment.locale(navigator.language)
 	$.each(timedata, function(name, content) {
+		isAddNewRow = 0
+		influenceDuration = [0,0]
+		// 时间冲突插入新行一次开关
 		if(typeof content != "string" && /\d/gi.test(name)) {
 			tablerows++; //确定行号
 		}
-		if(tablerows > 8) {
+		if(tablerows > Math.ceil(maximumrows/2)) {
 			$(".week2").show()
 			$(".weekswitch").show()
 		}
-		if(tablerows == 9) {
+		if(tablerows == (Math.ceil(maximumrows/2)+1)) {
 			if(moment(name).format("MMDD") > moment().format("MMDD")) {
 				hideweek = 2;
 			} else {
@@ -266,24 +313,29 @@ function main() //主要处理函数
 				if(value[1] == "緊急" && value[0].indexOf(30) == -1) {
 					time = timeparser(value[0])
 					if(zone == "gmt8" && time < 0) {
-						var table = $("#timetable tr:eq(" + (tablerows - 1) + ") td:eq(" + 24 + ")")
+						var table = $("#timetable tr:eq(" + checkIsAddRows((tablerows-1)) + ") td:eq(" + 24 + ")")
 						statusupdater(23)
 					} else {
 						var table = $("#timetable tr:eq(" + tablerows + ") td:eq(" + (time + 1) + ")")
 						statusupdater(time)
 					}
+				durationEqParser(value[0], value[2])
+				if (isDurationEq != 1){
 					table.html(questparser(value[2]));
 					table.attr("class", classparser(value[2]));
+
+					}
 				}
 				if(value[1] == "緊急" && value[0].indexOf(30) != -1) {
 					time = timeparser(value[0])
 					if(zone == "gmt8" && time < 0) {
-						var table = $("#timetable tr:eq(" + (tablerows - 1) + ") td:eq(" + 24 + ")")
+						var table = $("#timetable tr:eq(" + checkIsAddRows((tablerows-1)) + ") td:eq(" + 24 + ")")
 						statusupdater(23)
 					} else {
 						var table = $("#timetable tr:eq(" + tablerows + ") td:eq(" + (time + 1) + ")")
 						statusupdater(time)
 					}
+					durationEqParser(value[0], value[2])
 					if(livestage == true) {
                         if(zone == "gmt8" && time < 0) {
                             table.html("演唱会" + "<br />" + "(23:30)" + "<br />" + questparser(value[2]));
@@ -295,8 +347,10 @@ function main() //主要处理函数
                             livestage = false;
                         }
 					} else {
-						table.html("(" + time + ":30)" + "<br />" + questparser(value[2]));
-						table.attr("class", classparser(value[2]));
+						if (isDurationEq != 1){
+							table.html("(" + time + ":30)" + "<br />" + questparser(value[2]));
+							table.attr("class", classparser(value[2]));
+						}
 					}
 				}
 				if(value[1] == "カジノイベント") {
@@ -320,35 +374,45 @@ function main() //主要处理函数
 					statusupdater(end - 1);
 				}
 				if(value[1] == "アークスリーグ") {
+					showTime = ""
 					//分出来之后可能还用得到
 					var start = timeparser(durationparser(value[0])[0]);
 					var end = timeparser(durationparser(value[0])[1]);
+					//确认是否30分结束
+					if (durationparser(value[0])[1].indexOf(30)!= -1){
+						end = end + 1
+					}
+					//确认是否30分开始
+					if (durationparser(value[0])[0].indexOf(30)!= -1 || durationparser(value[0])[0].indexOf(30)!= -1){
+						showTime = start + ((durationparser(value[0])[0].indexOf(30) != -1)? ":30":":00") + "~" + end + ((durationparser(value[0])[1].indexOf(30) != -1)? ":30":":00") + "<br/>"
+					}
 					if(end - start > 1) {
 						var startid = $("#timetable tr:eq(" + tablerows + ") td:eq(" + (start + 1) + ")").attr("id")
 						var endid = $("#timetable tr:eq(" + tablerows + ") td:eq(" + end + ")").attr("id")
-						$("#" + startid).html(leagueparser(value[2]));
+						$("#" + startid).html(showTime+leagueparser(value[2]));
 						$("#" + startid).attr("class", "ranking");
 						var push = [startid, endid, start, end]
 						durationhide.push(push)
 					}
 					if(end - start == 1) {
 						var startid = $("#timetable tr:eq(" + tablerows + ") td:eq(" + (start + 1) + ")").attr("id")
-						$("#" + startid).html(leagueparser(value[2]));
+						$("#" + startid).html(showTime+leagueparser(value[2]));
 						$("#" + startid).attr("class", "ranking");
 					}
 					statusupdater(start);
 					statusupdater(end - 1);
+					influenceDuration = [start, end]
 				}
-				if(name != "期間ブースト" && value[1] == "ブースト") {
-					var table = $("#timetable tr:eq(" + tablerows + ") td:eq(" + 25 + ")")
-					table.html(value[2]);
-				}
-				if(name == "期間ブースト" && value[1] == "ブースト") {
-					boostcreator(value[0], boostparser(value[2]))
-				};
-				if(name == "期間ブースト" && value[1] == "イベント報酬") {
-					boostcreator(value[0], boostparser(value[2]))
-				};
+				// if(name != "期間ブースト" && value[1] == "ブースト") {
+				// 	var table = $("#timetable tr:eq(" + tablerows + ") td:eq(" + 25 + ")")
+				// 	table.html(value[2]);
+				// }
+				// if(name == "期間ブースト" && value[1] == "ブースト") {
+				// 	boostcreator(value[0], boostparser(value[2]))
+				// };
+				// if(name == "期間ブースト" && value[1] == "イベント報酬") {
+				// 	boostcreator(value[0], boostparser(value[2]))
+				// };
 				if(value[1] == "ライブ" && value[0].indexOf(30) == -1) {
 					livestage = true;
 				}
@@ -365,6 +429,10 @@ function main() //主要处理函数
 					}
 				}
 			});
+		}
+		if (isAddNewRow != 0){
+			tablerows ++
+			maximumrows = maximumrows + 2
 		}
 	});
 	durationhider();

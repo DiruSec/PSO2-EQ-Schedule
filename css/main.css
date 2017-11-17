@@ -16,7 +16,6 @@ caption {
 }
 td, th {
     padding:5px;
-    line-height:1.5;
 }
 thead th {
     text-align:center;
@@ -36,7 +35,8 @@ tbody tr:nth-child(2n+1) {
 
 tbody tr td { 
     height:40px;
-    border:1px solid #FFF;
+	border:1px solid #FFF;
+	padding: 0px;
 }
 
 footer{
@@ -90,6 +90,9 @@ footer{
 	border-spacing: 0;
     background: #FFFFFF;
 	}
+#randomtable tr td{
+	padding: 10px
+}
 	
 #infoarea{
 	position: relative;
@@ -130,7 +133,6 @@ footer{
 		justify-content: center;
 		min-height: 90%;
 		margin:0 auto; 
-		overflow:hidden;
 		position: relative;
 	}
 
@@ -140,13 +142,12 @@ footer{
 	
 	#tablearea{
 		float: left;
-   		position: relative;
+		position: relative;
 	}
     
     #infoarea{
     	left: 1.5rem;
     	float: left;
-    	max-width: 30%;
     }
     
 }
