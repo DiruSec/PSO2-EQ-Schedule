@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#!/usr/bin/python3 
+#!/usr/bin/python3
 import urllib, re, json, datetime, sys
 from collections import OrderedDict
 from urllib import request
