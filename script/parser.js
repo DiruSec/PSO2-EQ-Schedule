@@ -545,8 +545,8 @@ var timestatus = {
 };
 var availablequest = []
 var durationhide = []
-var questname = {}
-var boostname = {}
+// var questname = {}
+// var boostname = {}
 var timedata = {}
 var livestage = false
 var showNotice
@@ -604,14 +604,14 @@ $(document).ready(function() {
 // 按顺序读取三个json，确保全部读取成功
 $.getJSON("script/schedule.json", function(data) { //时间表内容
 	timedata = data;
-	$.getJSON("script/boost.json", function(data) { //BUFF对象名称替换
-		boostname = data;
-		$.getJSON("script/questreplace.json", function(data) { //紧急缩写替换
-			questname = data;
+	// $.getJSON("script/boost.json", function(data) { //BUFF对象名称替换
+	// 	boostname = data;
+	// 	$.getJSON("script/questreplace.json", function(data) { //紧急缩写替换
+	// 		questname = data;
 			zone = $("input[name='timezone']:checked").val();
 			main();
-		}, "json");
-	}, "json");
+	// 	}, "json");
+	// }, "json");
 }, "json");
 
 $.getJSON("script/mtnupdate.json", function(data) {

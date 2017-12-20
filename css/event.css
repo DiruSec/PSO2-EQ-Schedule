@@ -126,6 +126,14 @@
 	padding-right: 0.2rem;
 }
 
+.dragon{
+	background: #F7B9BF;
+	color: #000000;
+	border-bottom:0.2rem solid #F7ADB4;
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+
 .forest{
 	background: #3CB371;
 	color: #FFFFFF;
@@ -137,7 +145,7 @@
 .snowfield{
 	background: #FAFAFA;
 	color: #000000;
-	border-bottom:0.2rem solid #FFFFFF;
+	border-bottom:0.2rem solid #e2e2e2;
 	padding-left: 0.2rem;
 	padding-right: 0.2rem;
 }

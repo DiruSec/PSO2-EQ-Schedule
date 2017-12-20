@@ -1,10 +1,6 @@
 pushlist = ["ship1", "ship2", "ship3", "ship4", "ship5", "ship6", "ship7", "ship8", "ship9", "ship10"]
 makeloop()
-
-$.getJSON("script/randomreplace.json", function (data) {
-	randomname = data;
-	randommain();
-}, "json");
+randommain();
 
 function randommain(){
 $.getJSON("script/twitter.json", function (data) {
