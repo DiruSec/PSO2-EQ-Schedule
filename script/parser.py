@@ -82,7 +82,7 @@ def mainparser():
                         div_result = table.find("tr", class_=classtext).find("td", class_=tdclass).find_all("div")[result_index]
                         try:
                             table.find("tr", class_=classtext).find("td", class_=tdclass)['rowspan']
-                            if (div_result.dl.dt.string == "緊急"):
+                            if (div_result.dl.dt.string == "緊急" or div_result.dl.dt.string == "ライブ"):
                                 sys.exit(0)
                             start = div_result.dl.dd.contents[1]
                             end = div_result.dl.dd.contents[3]
