@@ -61,16 +61,16 @@ function randominput(){
 			}
 			($('<td colspan="10">'+ statustext +hour+":"+minute+" "+content["text"].match(/(?:\d*):(?:\d*) (.*?)(?:(\n)|(\r)|　)/)[1] +'</td>')).appendTo(tr);
 		} else {
-			var r1 = rqparser(content["text"].match(/01:(.*?)\n/)[1]);
-			var r2 = rqparser(content["text"].match(/02:(.*?)\n/)[1]);
-			var r3 = rqparser(content["text"].match(/03:(.*?)\n/)[1]);
-			var r4 = rqparser(content["text"].match(/04:(.*?)\n/)[1]);
-			var r5 = rqparser(content["text"].match(/05:(.*?)\n/)[1]);
-			var r6 = rqparser(content["text"].match(/06:(.*?)\n/)[1]);
-			var r7 = rqparser(content["text"].match(/07:(.*?)\n/)[1]);
-			var r8 = rqparser(content["text"].match(/08:(.*?)\n/)[1]);
-			var r9 = rqparser(content["text"].match(/09:(.*?)\n/)[1]);
-			var r10 = rqparser(content["text"].match(/10:(.*?)(?:(\n)|　)/)[1]);
+			var r1 = rqparser(checkNull(content["text"].match(/01:(.*?)\n/)));
+			var r2 = rqparser(checkNull(content["text"].match(/02:(.*?)\n/)));
+			var r3 = rqparser(checkNull(content["text"].match(/03:(.*?)\n/)));
+			var r4 = rqparser(checkNull(content["text"].match(/04:(.*?)\n/)));
+			var r5 = rqparser(checkNull(content["text"].match(/05:(.*?)\n/)));
+			var r6 = rqparser(checkNull(content["text"].match(/06:(.*?)\n/)));
+			var r7 = rqparser(checkNull(content["text"].match(/07:(.*?)\n/)));
+			var r8 = rqparser(checkNull(content["text"].match(/08:(.*?)\n/)));
+			var r9 = rqparser(checkNull(content["text"].match(/09:(.*?)\n/)));
+			var r10 = rqparser(checkNull(content["text"].match(/10:(.*?)(?:(\n)|　)/)));
 			($('<td class="'+r1[1]+'">'+r1[0]+'</td>')).appendTo(tr);
 			($('<td class="'+r2[1]+'">'+r2[0]+'</td>')).appendTo(tr);
 			($('<td class="'+r3[1]+'">'+r3[0]+'</td>')).appendTo(tr);
@@ -98,6 +98,14 @@ function makeloop(){
 	},5000);
 	makeloop();
 	},refreshinterval);
+}
+
+function checkNull(object){
+	if (object !== null){
+		return object[1]
+	} else{
+		return "―"
+	}
 }
 	
 function intervalcalc(){
@@ -182,16 +190,16 @@ function pushDataInit(){
 	shiptext = shiptext +hour+":"+minute+" "+content.match(/(?:\d*):(?:\d*) (.*?)(?:(\n)|(\r)|　)/)[1]
 } else {
 	interval = 1
-	ship1 = "1船：" + rqparser(content.match(/01:(.*?)\n/)[1])[0];
-	ship2 = "2船：" + rqparser(content.match(/02:(.*?)\n/)[1])[0];
-	ship3 = "3船：" + rqparser(content.match(/03:(.*?)\n/)[1])[0];
-	ship4 = "4船：" + rqparser(content.match(/04:(.*?)\n/)[1])[0];
-	ship5 = "5船：" + rqparser(content.match(/05:(.*?)\n/)[1])[0];
-	ship6 = "6船：" + rqparser(content.match(/06:(.*?)\n/)[1])[0];
-	ship7 = "7船：" + rqparser(content.match(/07:(.*?)\n/)[1])[0];
-	ship8 = "8船：" + rqparser(content.match(/08:(.*?)\n/)[1])[0];
-	ship9 = "9船：" + rqparser(content.match(/09:(.*?)\n/)[1])[0];
-	ship10 = "10船：" + rqparser(content.match(/10:(.*?)(?:(\n)|　)/)[1])[0];
+	ship1 = "1船：" + rqparser(checkNull(content.match(/01:(.*?)\n/)))[0];
+	ship2 = "2船：" + rqparser(checkNull(content.match(/02:(.*?)\n/)))[0];
+	ship3 = "3船：" + rqparser(checkNull(content.match(/03:(.*?)\n/)))[0];
+	ship4 = "4船：" + rqparser(checkNull(content.match(/04:(.*?)\n/)))[0];
+	ship5 = "5船：" + rqparser(checkNull(content.match(/05:(.*?)\n/)))[0];
+	ship6 = "6船：" + rqparser(checkNull(content.match(/06:(.*?)\n/)))[0];
+	ship7 = "7船：" + rqparser(checkNull(content.match(/07:(.*?)\n/)))[0];
+	ship8 = "8船：" + rqparser(checkNull(content.match(/08:(.*?)\n/)))[0];
+	ship9 = "9船：" + rqparser(checkNull(content.match(/09:(.*?)\n/)))[0];
+	ship10 = "10船：" + rqparser(checkNull(content.match(/10:(.*?)(?:(\n)|　)/)))[0];
 	titletext = "下一整点紧急"
 	}
 }
