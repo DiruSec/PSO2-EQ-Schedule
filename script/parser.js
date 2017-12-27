@@ -287,7 +287,7 @@ function main() //主要处理函数
 	moment.locale(navigator.language)
 	$.each(timedata, function(name, content) {
 		isAddNewRow = 0
-		influenceDuration = [0,0]
+		influenceDuration = [null,null]
 		// 时间冲突插入新行一次开关
 		if(typeof content != "string" && /\d/gi.test(name)) {
 			tablerows++; //确定行号
