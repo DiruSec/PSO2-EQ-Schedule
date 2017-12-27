@@ -245,7 +245,7 @@ function durationEqParser(origtime, questname){ // 处理在持续事件中的�
 	isDurationEq = 0
 	var durationStart = influenceDuration[0]
 	var durationEnd = influenceDuration[1]
-	if (time >= durationStart && time <= durationEnd){
+	if (durationEnd !== null && time >= durationStart && time <= durationEnd){
 		if (isAddNewRow == 0){
 			$("#timetable tr:eq(" + tablerows + ")").after("<tr id='t"+tablerows+"'></tr>")
 			$("#timetable tr:eq(" + tablerows + ")").children().attr("rowspan",2)
