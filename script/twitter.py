@@ -6,10 +6,10 @@ updatetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 result = [{"lastupdate": updatetime}]
 count = 1
 
-consumer_key = "CIU4OgvHrTWgvfYpqxeq7BgcQ"
-consumer_secret = "aSUmIFGcZ2NLOGgstSnPF3DxHMSnSitkz7Q4gDCd1b0BzEqYFp"
-access_token = "2890987094-CWQmPA7gukM4lDEywFS6M26ezDcEJZ6JLmIxZ7K"
-access_token_secret = "flvDmjbXDu8UckeDDAo6Z7YydMtSOmRiONjniosurBcco"
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_token_secret = ""
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
