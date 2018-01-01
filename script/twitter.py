@@ -1,15 +1,22 @@
 ﻿# -*- coding: utf-8 -*-
 #!/usr/bin/python
-import json, sys, tweepy, datetime
+import json, sys, tweepy, datetime, configparser
 updatetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 result = [{"lastupdate": updatetime}]
 count = 1
 
-consumer_key = ""
-consumer_secret = ""
-access_token = ""
-access_token_secret = ""
+try:
+    configFile = configparser.ConfigParser()
+    configFile.read(sys.path[0] + "/config.ini")
+    config = configFile["Auth"]
+    consumer_key = config["ckey"]
+    consumer_secret = config["csecret"]
+    access_token = config["token"]
+    access_token_secret = config["tsecret"]
+except:
+    print ("Authentication Error.")
+    raise
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
