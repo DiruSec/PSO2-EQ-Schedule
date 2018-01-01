@@ -8,7 +8,7 @@ count = 1
 
 try:
     configFile = configparser.ConfigParser()
-    configFile.read(sys.path[0] + "/config.ini")
+    configFile.read(sys.path[0] + "/twitterauth.ini")
     config = configFile["Auth"]
     consumer_key = config["ckey"]
     consumer_secret = config["csecret"]
