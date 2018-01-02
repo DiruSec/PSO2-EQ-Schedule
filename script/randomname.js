@@ -11,7 +11,7 @@ var randomname= {
 	"DF連戦" : ["双佛", "eloser"],
 	"禍津" : ["祸津","magatsu"],
 	"徒花" : ["菊花","adabana"],
-	"月母" : ["老母","mother"],
+	"マザー" : ["老母","mother"],
 	"森林" : ["森林","forest"],
 	"雨風" : ["雨风","forest"],
 	"凍土" : ["冻土","snowfield"],
