@@ -51,9 +51,9 @@ if (item) and (date <= mtninfodate):
         content = response.read().decode('utf-8')
         pattern = re.compile('<ul class="image">.*?<li>(.*?)月(.*?)日（.*?）(.*?) ～ (.*?)　→.*?<strong>(.*?)月(.*?)日（.*?）(.*?) ～ (.*?)</strong></li>',re.S)
         mchange = re.findall(pattern,content)[0]
-        mtime = datetime.datetime.strptime(year+"-"+mchange[0]+"-"+mchange[1], "%Y-%m-%d").date()
-        # print ("mtime:"+mtime)
-        # print ("date:"+date)
+        pattern2 = re.compile('<time datetime="">(.*?)/(.*?)/(.*?) (.*?):(.*?)</time>',re.S)
+        mchange2 = re.findall(pattern2,content)[0]
+        mtime = datetime.datetime.strptime(mchange2[0]+"-"+mchange[0]+"-"+mchange[1], "%Y-%m-%d").date()
         if (date <= mtime):
             result.update({"ismtnchanged":"true"})
             result.update({"mtndate": year+"-"+mchange[4]+"-"+mchange[5]})
