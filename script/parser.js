@@ -128,11 +128,14 @@ function leagueparser(name) //输出AL名
 	if(name.indexOf("ハイスコア") >= 0) {
 		return "排名：飞机(高分)"
 	} else if(name.indexOf("エネミー種撃破") >= 0) {
-		return "排名(" + name.match(/.*?エネミー種撃破：(.*)/)[1] + ")"
+		var text = name.match(/.*?エネミー種撃破：(.*)/)[1];
+		return "排名" + (text.length>4?"<br/>":"") + "(" + text + ")"
 	} else if(name.indexOf("アイテム収集") >= 0) {
-		return "排名(" + name.match(/アイテム収集：(.*)/)[1] + ")"
+		var text = name.match(/アイテム収集：(.*)/)[1];
+        return "排名" + (text.length>4?"<br/>":"") + "(" + text + ")"
 	} else if(name.indexOf("指定エネミー撃破") >= 0) {
-		return "排名(" + name.match(/指定エネミー撃破：(.*)/)[1] + ")"
+		var text = name.match(/指定エネミー撃破：(.*)/)[1];
+        return "排名" + (text.length>4?"<br/>":"") + "(" + text + ")"
 	} else if(name.indexOf("累計スコア") >= 0) {
 		return "排名：飞机(累计)"
 	}
@@ -376,8 +379,16 @@ function main() //主要处理函数
 				if(value[1] == "アークスリーグ") {
 					showTime = ""
 					//分出来之后可能还用得到
+                    var prevDay = false
 					var start = timeparser(durationparser(value[0])[0]);
 					var end = timeparser(durationparser(value[0])[1]);
+					if (start<0){
+						prevDay = true;
+						start = 24 + start
+						if (end === 0){
+							end = 24
+						}
+					}
 					//确认是否30分结束
 					if (durationparser(value[0])[1].indexOf(30)!= -1){
 						end = end + 1
@@ -395,7 +406,8 @@ function main() //主要处理函数
 						durationhide.push(push)
 					}
 					if(end - start == 1) {
-						var startid = $("#timetable tr:eq(" + tablerows + ") td:eq(" + (start + 1) + ")").attr("id")
+                        // var startid = $("#timetable tr:eq(" + tablerows + ") td:eq(" + (start + 1) + ")").attr("id")
+						var startid = $("#timetable tr:eq(" + (tablerows + (prevDay===true?-1:0)) + ") td:eq(" + (start + 1) + ")").attr("id")
 						$("#" + startid).html(showTime+leagueparser(value[2]));
 						$("#" + startid).attr("class", "ranking");
 					}
