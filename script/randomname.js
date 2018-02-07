@@ -15,6 +15,7 @@ var randomname= {
 	"森林" : ["森林","forest"],
 	"雨風" : ["雨风","forest"],
 	"凍土" : ["冻土","snowfield"],
+	"火山洞窟": ["火山洞窟","volcano"],
 	"リリーパ" : ["莉莉帕", "desert"],
 	"ナベリウス" : ["锅星", "forest"],
 	"ウォパル" : ["水星", "wopal"],
