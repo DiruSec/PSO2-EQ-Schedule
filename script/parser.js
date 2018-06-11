@@ -89,7 +89,8 @@ function questparser(name) //将json里的紧急全称处理为简称
 {
 	var output
 	$.each(questname, function(quest, value) {
-		if(name == quest) {
+		if(name.indexOf(quest) != -1) {
+			console.log(quest, name)
 			if(availablequest.indexOf(name) == -1) {
 				availablequest.push(name)
 				var span = $('<span class=\"' + value[1] + '\">' + value[0] + '</span>')
@@ -162,7 +163,7 @@ function classparser(name) //给每个紧急加上类名来添加颜色
 {
 	var output
 	$.each(questname, function(quest, value) {
-		if(name == quest) {
+		if(name.indexOf(quest) != -1) {
 			output = value[1];
 			return false; //判断成功后必须跳出，否则会继续循环而只留下json文件最末尾的
 		}
